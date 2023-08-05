@@ -1,14 +1,20 @@
-# lista_compras-python
+# LISTA DE COMPRAS EM PYTHON
 
-LISTA DE COMPRAS INTERATIVO PARA FINS DIDÁTICOS.
-O algoritmo adicionar, deletar e visualizar a lista.
+### LISTA DE COMPRAS EM LINHA DE COMANDOS INTERATIVO PARA FINS DIDÁTICOS
+## O ALGORITMO PERMITE:
 
-## PALAVRAS RESERVADAS CONSTANTES
-- sair, SAIR
-- fechar, FECHAR
-- s, S
-- n, N
+- Adicionar
+- Delera
+- Listar itens adicionados
 
-Ao navegar sobre o código, poderá seguir o fluxo de maneira interativa.
+## LINGUAGEM
+- Python
 
-## O CÓDIGO ESTÁ EM DESENVOLVIMENTO. COM ISSO, É POSSÍVEL QUE HAJA ERROS INESPERADOS
+## IMPLEMENTAÇÕES FUTURAS
+- Função para deletar itens da lista
+...
+
+## STATUS DO PROJETO
+EM ANDAMENTO
+
+### O CÓDIGO ESTÁ EM DESENVOLVIMENTO, É POSSÍVEL QUE HAJA ERROS INESPERADOS.
