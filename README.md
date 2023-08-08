@@ -11,8 +11,8 @@
 - Python
 
 ## IMPLEMENTAÇÕES FUTURAS
-- Função para deletar itens da lista
-...
+- Corrigir alguns bugs
+- Melhor o fluxo dos loops
 
 ## STATUS DO PROJETO
 EM ANDAMENTO
