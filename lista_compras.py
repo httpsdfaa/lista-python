@@ -2,7 +2,7 @@
 lista_compras_var = []
 
 # FUNÇÕES
-def VERIFICAR_TAMANHO_LETRA(minusc, maiusc, entrada):
+def verificar_tamanho_letra(minusc, maiusc, entrada):
     return entrada.lower() == minusc or entrada.upper() == maiusc
 
 def lista_compras():
@@ -14,14 +14,14 @@ def lista_compras():
             print(f'{indice+1}: {item}')
 
 
-    entrada_lista = input('\nVocê deseja adicionar item a lista? "S" ou  "N"->') # AÇÃO SE USUÁRIO DESEJA OU NÃO ADICIONAR ALGO A LISTA
-    if VERIFICAR_TAMANHO_LETRA('s', 'S', entrada_lista):
+    entrada_lista = input('\nVocê deseja adicionar item a lista? [S/N]') # AÇÃO SE USUÁRIO DESEJA OU NÃO ADICIONAR ALGO A LISTA
+    if verificar_tamanho_letra('s', 'S', entrada_lista):
         print('LISTA DE COMPRAS\n\n')
         for indice, item in enumerate(lista_compras_var):
             print(f'{indice+1}: {item}')
 
-        INSERIR_COMPRAS()
-    elif VERIFICAR_TAMANHO_LETRA('n', 'N', entrada_lista):
+        inserir_compras()
+    elif verificar_tamanho_letra('n', 'N', entrada_lista):
         main() # CHAMADA DA FUNÇÃO PRIMÁRIA PARA RECOMEÇAR A LÓGICA
     elif not lista_compras_var:
         print('LISTAS DE COMPRAS ESTÁ VAZIO\n')
@@ -29,14 +29,14 @@ def lista_compras():
     else:
         print('\nESCOLHA UMA OPÇÃO VÁLIDA\n')
         
-def INSERIR_COMPRAS():
+def inserir_compras():
     i = len(lista_compras_var) + 1
     print('Para sair digite [sair, SAIR]')
     while True:
         adicionar_item_lista = input(f'{i}: ')
-        if VERIFICAR_TAMANHO_LETRA('sair', 'SAIR', adicionar_item_lista):
-            break
-        if adicionar_item_lista == '':
+        if verificar_tamanho_letra('sair', 'SAIR', adicionar_item_lista):
+            return lista_compras() 
+        elif adicionar_item_lista == '':
             print('--A lista não pode ficar sem algum item--')
             continue
         else:
@@ -44,20 +44,58 @@ def INSERIR_COMPRAS():
 
             i += 1
 
-def DELETAR_COMPRAS():
-    ...
+def deletar_item():
+    if lista_compras_var == []:
+        print('--Sua lista de compras está vazio--')
+        entrada_lista_2 = input('\nDeseja adicionar algo a lista? [S/N]')
+        if verificar_tamanho_letra('s', 'S', entrada_lista_2):
+            return inserir_compras()
+        elif verificar_tamanho_letra('n', 'N', entrada_lista_2):
+            return lista_compras()
+        else:
+            print('Entrada inválida. Digite S ou N para continuar')
+    else:
+        for i, item in enumerate(lista_compras_var):
+            print(f'{i+1}: {item}')
+
+        while True:
+            entrada_deletar = input('Digite o índice para deletar ou [S] para sair: ')
+            for i, item in enumerate(lista_compras_var):
+                print(f'{i+1}: {item}')
+            
+            if entrada_deletar.isdigit():
+                try:
+                    entrada_deletar = int(entrada_deletar)
+
+                    del lista_compras_var[entrada_deletar - 1]
+
+                except:
+                    print('--Índice não existente--')
+                    continue
+
+            elif verificar_tamanho_letra('s', 'S', entrada_deletar):
+                return lista_compras()
+            elif verificar_tamanho_letra('n', 'N', entrada_deletar):
+                continue
+            else:
+                print('--Entrada inválida--')
+                continue
+            
 
 def main():
     while True:
         entrada_in = input('L: Lista de compras \nI: Inserir item à lista de compras \n\
 D: Apagar item da lista de compras \n-> ')
-        nao_digito = not entrada_in.isdigit() # NÃO ACEITA SOMENTE NÚMEROS.
         
-        if nao_digito and VERIFICAR_TAMANHO_LETRA('l', 'L', entrada_in):
-            lista_compras()
-        elif VERIFICAR_TAMANHO_LETRA('fechar', 'FECHAR', entrada_in):
+        if verificar_tamanho_letra('l', 'L', entrada_in): # LISTAR
+            return lista_compras()
+        elif verificar_tamanho_letra('i', 'I', entrada_in): # ADICIONAR
+            return inserir_compras()
+        elif verificar_tamanho_letra('d', 'D', entrada_in): # DELETAR
+            return deletar_item()
+        elif verificar_tamanho_letra('fechar', 'FECHAR', entrada_in):
             print('encerrando o programa')
             break
         else:
-            ...
+            print('Entrada inválida.')
 main()
