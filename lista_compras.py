@@ -1,3 +1,5 @@
+import os
+
 # VARIÁVEIS
 lista_compras_var = []
 
@@ -15,6 +17,7 @@ def prints_repetitivos(lista_vazia, entrada_invalida, lista_compras):
 
 
 def lista_compras():
+    os.system('clear')
     if not lista_compras_var: 
         prints_repetitivos(True, False, False)
     else:
@@ -37,6 +40,7 @@ def lista_compras():
 
 
 def inserir_compras():
+    os.system('clear')
     i = len(lista_compras_var) + 1
     print('Para sair digite [sair]')
     while True:
@@ -92,6 +96,7 @@ def deletar_item():
             
 
 def atualizar_lista():
+    os.system('clear')
     if not lista_compras_var:
         prints_repetitivos(True, False, False)
         entrada_atualizar = input('\nVocê deseja adicionar item a lista? [S/N]')
@@ -132,7 +137,10 @@ def atualizar_lista():
                 prints_repetitivos(False, True, False)
                 continue
 
+
+
 def main():
+    os.system('clear')
     while True:
         entrada_in = input('L: Lista de compras \nI: Inserir item à lista de compras \n\
 D: Apagar item da lista de compras \nA: Atualizar item da lista \n-> ')
