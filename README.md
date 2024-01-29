@@ -12,7 +12,7 @@
 
 ## IMPLEMENTAÇÕES FUTURAS
 - Corrigir alguns bugs
-- Melhor o fluxo dos loops
+- Melhorar o fluxo dos loops
 
 ## STATUS DO PROJETO
 EM ANDAMENTO
